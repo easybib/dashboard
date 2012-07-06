@@ -185,6 +185,11 @@ class GraphFactory {
                     $g = new Graph_Cacti($graph_time, $until_time);
                     $g->addMetric($graph_config['metric']);
                     return $g->getDashboardHTML($width, $height);
+                case 'librato':
+                    $until_time = isset($graph_config['until']) ? $graph_config['until'] : null;
+                    $g = new Graph_Librato($graph_time, $until_time);
+                    $g->addMetric($graph_config['metric']);
+                    return $g->getDashboardHTML($width, $height);
                 case 'html':
                     $title = isset($graph_config['title']) ? $graph_config['title'] : '';
                     $html = $title ? "<h3>$title</h3>" : '';

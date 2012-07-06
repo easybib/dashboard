@@ -14,6 +14,7 @@ require_once('Graph/Graphite.php');
 require_once('Graph/GraphitePercentage.php');
 require_once('Graph/GraphitePie.php');
 require_once('Graph/Graphlot.php');
+require_once('Graph/Librato.php');
 require_once('Graph/NewRelic.php');
 require_once('SplunkUtils.php');
 require_once('Tabs.php');
@@ -59,6 +60,7 @@ class Dashboard {
     public static $DB_TABS = array(
         'PGBouncer' => '/example_pgbouncer.php',
         'PostgreSQL Queries' => '/example_postgresql_queries.php',
+        'Test with Librato Graphs' => '/example_librato.php',
     );
 
     public static $DEPLOY_TABS = array(

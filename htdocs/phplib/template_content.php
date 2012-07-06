@@ -3,6 +3,7 @@
 $has_ganglia = false;
 $has_jenkins = false;
 $has_ga = false;
+$has_librato = false;
 
 if (isset($graphs)){
     foreach ((array)$graphs as $section) {
@@ -13,6 +14,8 @@ if (isset($graphs)){
                 $has_jenkins = true;
             } elseif ($graph['type'] == 'google_analytics') {
                 $has_ga = true;
+            } elseif ($graph['type'] == 'librato') {
+                $has_librato = true;
             }
         }
     }
@@ -36,6 +39,12 @@ if (isset($graphs)){
     <div class="notice"><strong>Jenkins</strong> can only display graphs in three time intervals: <em>one-hour, one-day </em>and<em> one-week.</em>  Jenkins graphs displayed here are using the time interval closest to the one you selected.</div>
 <?php endif; ?>
 
+<?php if ($has_librato): ?>
+    <style type="text/css">
+      .librato-metrics { width: 500px; height: 200px; }
+    </style>
+<?php endif; // @todo get real width and height ?>
+
 <?php if (isset($html_for_header)) { print $html_for_header; } ?>
 
 <div id="frame">
@@ -45,3 +54,10 @@ if (isset($graphs)){
 
     <?php if (isset($additional_html)) { print $additional_html; } ?>
 </div>
+
+<?php if ($has_librato): ?>
+    <script type="text/javascript"
+     src="/phplib/Graph/special_assets/javascripts/librato.metrics.js"
+     data-librato_email="servers@imagineeasy.com"
+     data-librato_token="__FAKE_TOKEN__"></script>
+<?php endif; // @todo change the token before committing! ?>
