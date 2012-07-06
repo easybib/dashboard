@@ -41,9 +41,9 @@ if (isset($graphs)){
 
 <?php if ($has_librato): ?>
     <style type="text/css">
-      .librato-metrics { width: 500px; height: 200px; }
+      .librato-metrics { width: <?php echo GraphConstants::TWO_GRAPH_WIDTH . 'px;'; ?> height: <?php echo GraphConstants::HEIGHT . 'px;'; ?> }
     </style>
-<?php endif; // @todo get real width and height ?>
+<?php endif; ?>
 
 <?php if (isset($html_for_header)) { print $html_for_header; } ?>
 
@@ -60,4 +60,4 @@ if (isset($graphs)){
      src="/phplib/Graph/special_assets/javascripts/librato.metrics.js"
      data-librato_email="servers@imagineeasy.com"
      data-librato_token="__FAKE_TOKEN__"></script>
-<?php endif; // @todo change the token before committing! ?>
+<?php endif; // @note change the token before committing! ?>
