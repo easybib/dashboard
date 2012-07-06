@@ -94,3 +94,5 @@ If you do the same thing, you should add these stat names to the
 `htdocs/phplib/DeployConstants.php` file. If you don't, you should delete the
 entries in this file. The dashbaord framework will let you hide individual
 deploy types on the dashboard pages.
+
+(Ulf was here!)
